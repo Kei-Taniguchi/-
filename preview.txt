@@ -1,1 +1,0 @@
-Codespaces: Node.js 22; npm install; http-server 0.0.0.0:8080; automatic forwarding; browser open; startup readiness check.
