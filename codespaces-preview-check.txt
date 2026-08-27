@@ -1,0 +1,1 @@
+Preview configuration: Node.js 22, npm install, http-server on 0.0.0.0:8080, automatic forwarding, browser open, and startup readiness check.
