@@ -1,1 +1,0 @@
-Dependencies are intentionally installed by npm install during Codespaces creation; no hand-written package-lock is maintained in this prototype.
