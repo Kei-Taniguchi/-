@@ -15,9 +15,13 @@
 
 ## GitHub Codespaces
 
-Codespacesを新規作成すると、`.devcontainer/devcontainer.json` によりNode.js環境を用意し、依存関係を自動インストールします。起動時にはHTTPサーバーを `0.0.0.0:8080` で自動起動し、ポート8080を自動転送します。`onAutoForward: openBrowser` を設定しているため、通常はターミナル操作なしでブラウザプレビューを開けます。
+Codespacesを新規作成すると、`.devcontainer/devcontainer.json` によりNode.js 22環境を用意し、依存関係を自動インストールします。起動時には `.devcontainer/start-server.sh` がWebサーバーを `0.0.0.0:8080` で起動し、応答を確認してから完了します。ポート8080はHTTPとして自動転送し、`onAutoForward: openBrowser` により通常はターミナル操作なしでブラウザプレビューを開けます。
 
-### 手動操作が必要になった場合
+### 既存Codespaceで設定が反映されない場合
+
+`.devcontainer/devcontainer.json` はコンテナ作成時の設定です。以前から存在するCodespaceでは、設定変更後に **Rebuild Container（コンテナーの再ビルド）** を一度実行してください。新規Codespaceでは自動的に適用されます。
+
+### 手動確認が必要になった場合
 
 Codespacesの「Ports」から8080の「Open in Browser」を選択してください。サーバー起動ログは `/tmp/household-budget-web-app.log` にあります。
 
@@ -43,4 +47,5 @@ Node.js/npmが利用できる環境で `npm install` 後、`npm start` を実行
 - `app.js` — サンプルデータ、計算、入力・更新処理
 - `package.json` — HTTPサーバー依存関係と起動コマンド
 - `.devcontainer/devcontainer.json` — Codespacesの実行環境、依存関係、ポート転送、自動ブラウザ起動設定
-- `README.md` — 要件・試作の説明
+- `.devcontainer/start-server.sh` — サーバー起動・待受確認・再起動処理
+- `.github/workflows/preview-check.yml` — 8080番ポートでの起動確認
