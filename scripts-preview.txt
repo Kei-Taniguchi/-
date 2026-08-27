@@ -1,0 +1,1 @@
+Codespaces preview: Node.js 22, npm install, http-server on 0.0.0.0:8080, automatic port forwarding and browser open. Existing Codespaces should be rebuilt after configuration changes.
