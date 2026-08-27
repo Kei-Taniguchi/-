@@ -1,0 +1,1 @@
+Codespaces uses Node.js 22, installs dependencies automatically, starts the preview server on port 8080, forwards it, and opens the browser. Rebuild an existing Codespace after `.devcontainer` changes.
