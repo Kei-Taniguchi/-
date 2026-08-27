@@ -1,0 +1,1 @@
+If an existing Codespace does not pick up `.devcontainer` changes, use **Codespaces: Rebuild Container** once. New Codespaces apply the configuration automatically.
