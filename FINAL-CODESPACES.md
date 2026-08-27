@@ -1,1 +1,0 @@
-After changing `.devcontainer`, rebuild an existing Codespace once. New Codespaces automatically install dependencies, start the server on port 8080, forward the port, and open the browser.
