@@ -1,0 +1,12 @@
+{
+  "name": "household-budget-web-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "家計簿・支払い計画 Webアプリ試作",
+  "scripts": {
+    "start": "http-server . -p 8080 -a 0.0.0.0 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

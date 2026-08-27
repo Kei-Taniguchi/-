@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>家計簿・支払い計画</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header><div><p class="eyebrow">HOUSEHOLD BUDGET</p><h1>家計簿・支払い計画</h1><p>実績を入力すると、月別の収支・支払い残高・完済予定を自動更新します。</p></div><button id="resetBtn" class="secondary">サンプルデータに戻す</button></header>
+
+    <section class="cards" id="summary"></section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h2>個別支払い</h2><p>予定額と実績額を分けて管理。実績入力で残額・完済状況を更新。</p></div><button id="addPayment">支払いを追加</button></div>
+      <div class="table-wrap"><table><thead><tr><th>項目</th><th>区分</th><th>開始月</th><th>予定月額</th><th>残額</th><th>残回数</th><th>実績累計</th><th>状態</th><th></th></tr></thead><tbody id="payments"></tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h2>月別支払い計画</h2><p>固定費・光熱費・リボ・分割・その他を合計し、必要資金を表示。</p></div></div>
+      <div class="table-wrap"><table><thead><tr><th>月</th><th>収入</th><th>固定費</th><th>光熱費</th><th>リボ・分割</th><th>その他</th><th>必要額</th><th>月末残額</th></tr></thead><tbody id="months"></tbody></table></div>
+    </section>
+
+    <section class="panel two-col">
+      <div><h2>入力ルール</h2><ul><li>毎月の実績額を入力すると計画を再計算。</li><li>予定額と実績額の差額を保持。</li><li>残額が0以下になった支払いは完済扱い。</li><li>完済した月以降は月別必要額から自動除外。</li></ul></div>
+      <div><h2>支払い終了による効果</h2><div id="milestones"></div></div>
+    </section>
+  </main>
+  <dialog id="paymentDialog"><form method="dialog" id="paymentForm"><h2>支払いを追加</h2><label>項目<input name="name" required></label><label>区分<select name="type"><option>リボ</option><option>分割</option><option>固定費</option><option>光熱費</option><option>その他</option></select></label><label>開始月<input name="month" type="month" value="2026-09" required></label><label>予定月額<input name="monthly" type="number" min="0" step="100" required></label><label>残額<input name="balance" type="number" min="0" step="100" required></label><label>残回数<input name="count" type="number" min="1" value="1" required></label><div class="dialog-actions"><button value="cancel" class="secondary">キャンセル</button><button value="default">追加</button></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
