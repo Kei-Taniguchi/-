@@ -2,7 +2,7 @@
   "name": "Household Budget Web App",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
   "postCreateCommand": "npm install",
-  "postStartCommand": "nohup npm start > /tmp/household-budget-web-app.log 2>&1 &",
+  "postStartCommand": "bash .devcontainer/start-server.sh",
   "forwardPorts": [8080],
   "portsAttributes": {
     "8080": {
