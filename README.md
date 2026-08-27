@@ -13,9 +13,17 @@
 - 支払い項目を追加・削除可能
 - ブラウザのlocalStorageへ保存し、ページを再読み込みしても入力を保持
 
-## 起動
+## GitHub Codespaces
 
-`index.html` をブラウザで開くだけで動作します。ビルドツールや外部ライブラリは不要です。
+Codespacesを新規作成すると、`.devcontainer/devcontainer.json` によりNode.js環境を用意し、依存関係を自動インストールします。起動時にはHTTPサーバーを `0.0.0.0:8080` で自動起動し、ポート8080を自動転送します。`onAutoForward: openBrowser` を設定しているため、通常はターミナル操作なしでブラウザプレビューを開けます。
+
+### 手動操作が必要になった場合
+
+Codespacesの「Ports」から8080の「Open in Browser」を選択してください。サーバー起動ログは `/tmp/household-budget-web-app.log` にあります。
+
+## ローカル起動
+
+Node.js/npmが利用できる環境で `npm install` 後、`npm start` を実行します。サーバーは8080番ポートで待ち受けます。
 
 ## 今後の実装
 
@@ -33,4 +41,6 @@
 - `index.html` — 画面
 - `styles.css` — スタイル
 - `app.js` — サンプルデータ、計算、入力・更新処理
+- `package.json` — HTTPサーバー依存関係と起動コマンド
+- `.devcontainer/devcontainer.json` — Codespacesの実行環境、依存関係、ポート転送、自動ブラウザ起動設定
 - `README.md` — 要件・試作の説明
