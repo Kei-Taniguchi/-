@@ -1,1 +1,0 @@
-Existing Codespaces may require Codespaces: Rebuild Container after .devcontainer changes. New Codespaces use the configuration automatically.
