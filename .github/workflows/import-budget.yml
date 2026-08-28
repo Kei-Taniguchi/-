@@ -12,12 +12,18 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: budget-import-main
+  cancel-in-progress: false
+
 jobs:
   import:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,6 +40,12 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git rebase origin/main
           git add data/budget-data.json
-          git diff --cached --quiet && echo 'No data changes' || git commit -m 'chore: update generated budget data'
-          git push
+          if git diff --cached --quiet; then
+            echo 'No data changes'
+            exit 0
+          fi
+          git commit -m 'chore: update generated budget data'
+          git push origin HEAD:main
