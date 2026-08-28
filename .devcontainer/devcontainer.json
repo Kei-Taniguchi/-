@@ -9,7 +9,8 @@
     "8080": {
       "label": "家計簿 Webアプリ",
       "protocol": "http",
-      "onAutoForward": "openBrowser"
+      "onAutoForward": "openBrowser",
+      "visibility": "public"
     }
   },
   "customizations": {
