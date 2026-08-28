@@ -12,6 +12,7 @@ OUT = ROOT / "data" / "budget-data.json"
 MONTH_RE = re.compile(r"^(\d{4})年(\d{1,2})月分$")
 INSTALLMENT_RE = re.compile(r"\d+\s*/\s*\d+")
 END_RE = re.compile(r"～\s*\d{4}\s*/\s*\d+")
+FIXED_KEYWORDS = ("家賃", "LIFELINE", "通信", "携帯", "スマホ", "保険", "サブスク")
 
 def value(v):
     if v is None: return None
@@ -23,8 +24,7 @@ def number(v):
     return isinstance(v, (int, float)) and not isinstance(v, bool)
 
 def row_values(ws):
-    for row in ws.iter_rows(values_only=True):
-        yield [value(v) for v in row]
+    for row in ws.iter_rows(values_only=True): yield [value(v) for v in row]
 
 def parse_ratio(v):
     if v is None: return None
@@ -38,29 +38,21 @@ def classify(detail, h, i):
     if detail and "電気" in str(detail): return "電気"
     if detail and "ガス" in str(detail): return "ガス"
     if detail and "水道" in str(detail): return "水道"
+    if detail and any(k.lower() in str(detail).lower() for k in FIXED_KEYWORDS): return "固定費"
     return "その他"
 
 def parse_month_sheet(ws):
-    income = 0
-    payments = []
+    income = 0; payments = []
     for row_no, row in enumerate(ws.iter_rows(values_only=True), start=1):
-        a = row[0] if len(row) > 0 else None
-        b = row[1] if len(row) > 1 else None
-        e = row[4] if len(row) > 4 else None
-        g = row[6] if len(row) > 6 else None
-        h = row[7] if len(row) > 7 else None
-        i = row[8] if len(row) > 8 else None
+        a = row[0] if len(row) > 0 else None; b = row[1] if len(row) > 1 else None
+        e = row[4] if len(row) > 4 else None; g = row[6] if len(row) > 6 else None
+        h = row[7] if len(row) > 7 else None; i = row[8] if len(row) > 8 else None
         if row_no != 7:
             if number(a): income += a
             if number(b): income += b
         if e is None or not number(g) or g == 0: continue
         ratio = parse_ratio(h) or parse_ratio(i)
-        payments.append({
-            "detail": str(e), "amount": g, "category": classify(e, h, i), "row": row_no,
-            "progress": {"paid": ratio[0], "total": ratio[1]} if ratio else None,
-            "schedule": str(i) if i is not None else None,
-            "h": str(h) if h is not None else None, "i": str(i) if i is not None else None,
-        })
+        payments.append({"detail": str(e), "amount": g, "category": classify(e, h, i), "row": row_no, "progress": {"paid": ratio[0], "total": ratio[1]} if ratio else None, "schedule": str(i) if i is not None else None, "h": str(h) if h is not None else None, "i": str(i) if i is not None else None})
     balance = ws["B7"].value
     return income, balance if number(balance) else None, payments
 
@@ -73,8 +65,7 @@ def main():
         rows = list(row_values(ws)); sheets[ws.title] = {"title": ws.title, "rows": rows}
         m = MONTH_RE.match(ws.title)
         if not m: continue
-        month = f"{m.group(1)}-{int(m.group(2)):02d}"
-        income, balance, payments = parse_month_sheet(ws)
+        month = f"{m.group(1)}-{int(m.group(2)):02d}"; income, balance, payments = parse_month_sheet(ws)
         for p in payments:
             key = (p["detail"], p["category"])
             item = payment_index.setdefault(key, {"name": p["detail"], "type": p["category"], "monthly": p["amount"], "latestMonth": month, "progress": p["progress"], "end": p["schedule"], "history": []})
@@ -88,17 +79,10 @@ def main():
     for item in payment_index.values():
         progress = item.get("progress"); remaining_count = remaining_amount = None
         if progress:
-            remaining_count = max(0, progress["total"] - progress["paid"])
-            remaining_amount = item["monthly"] * remaining_count
+            remaining_count = max(0, progress["total"] - progress["paid"]); remaining_amount = item["monthly"] * remaining_count
         payment_items.append({**item, "remainingCount": remaining_count, "remainingAmount": remaining_amount})
-    result = {
-        "generatedAt": datetime.now().isoformat(timespec="seconds"), "source": BOOK.name,
-        "rules": {"incomeColumns": ["A", "B"], "balanceCell": "B7", "paymentDetailColumn": "E", "paymentAmountColumn": "G", "installmentColumns": ["H", "I"]},
-        "sheetNames": list(wb.sheetnames), "categories": category_sheets,
-        "months": sorted(months, key=lambda x: x["month"]), "paymentItems": payment_items, "sheets": sheets,
-    }
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    result = {"generatedAt": datetime.now().isoformat(timespec="seconds"), "source": BOOK.name, "rules": {"incomeColumns": ["A", "B"], "balanceCell": "B7", "paymentDetailColumn": "E", "paymentAmountColumn": "G", "installmentColumns": ["H", "I"]}, "sheetNames": list(wb.sheetnames), "categories": category_sheets, "months": sorted(months, key=lambda x: x["month"]), "paymentItems": payment_items, "sheets": sheets}
+    OUT.parent.mkdir(parents=True, exist_ok=True); OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Generated {OUT} from {len(sheets)} sheets; monthly sheets={len(months)}; payment items={len(payment_items)}")
 
 if __name__ == "__main__": main()
