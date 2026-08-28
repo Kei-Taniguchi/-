@@ -1,6 +1,19 @@
 {
-  "generatedAt": "2026-08-28T01:41:54",
+  "generatedAt": "2026-08-28T02:03:17",
   "source": "家計.xlsx",
+  "rules": {
+    "incomeColumns": [
+      "A",
+      "B"
+    ],
+    "balanceCell": "B7",
+    "paymentDetailColumn": "E",
+    "paymentAmountColumn": "G",
+    "installmentColumns": [
+      "H",
+      "I"
+    ]
+  },
   "sheetNames": [
     "2025年6月分",
     "2025年7月分",
@@ -21,26 +34,2037 @@
   ],
   "categories": {
     "リボ": [
-      "2026年7月分"
+      "2025年6月分",
+      "2025年7月分",
+      "2025年8月分",
+      "2025年9月分",
+      "2026年2月分",
+      "2026年4月分",
+      "2026年5月分",
+      "2026年6月分",
+      "2026年7月分",
+      "2026年8月分"
     ],
     "分割": [
-      "2026年7月分",
-      "分割分"
+      "2025年8月分",
+      "2025年9月分",
+      "2025年10月分",
+      "2025年11月分",
+      "2026年6月分"
     ],
     "固定費": [],
     "電気": [
       "2026年7月分",
       "2026年8月分"
     ],
-    "ガス": [
-      "2026年7月分",
-      "2026年8月分"
-    ],
+    "ガス": [],
     "水道": [
       "2026年7月分",
       "2026年8月分"
     ]
   },
+  "months": [
+    {
+      "month": "2025-06",
+      "sheet": "2025年6月分",
+      "income": 265282,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 93348,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 3,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "クオーク",
+          "amount": 27700,
+          "category": "その他",
+          "row": 4,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "サガミ",
+          "amount": 990,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾン",
+          "amount": 85542,
+          "category": "その他",
+          "row": 6,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 73217,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "UFJ",
+          "amount": 10178,
+          "category": "その他",
+          "row": 10,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 308975
+    },
+    {
+      "month": "2025-07",
+      "sheet": "2025年7月分",
+      "income": 168487,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 118827,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 3,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 4,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "クオーク",
+          "amount": 27700,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "サガミ",
+          "amount": 990,
+          "category": "その他",
+          "row": 6,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 26100,
+          "category": "その他",
+          "row": 9,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 211617
+    },
+    {
+      "month": "2025-08",
+      "sheet": "2025年8月分",
+      "income": 508520,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 156389,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 4,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "クオーク",
+          "amount": 27700,
+          "category": "その他",
+          "row": 6,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾン",
+          "amount": 51030,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 26100,
+          "category": "分割",
+          "row": 9,
+          "progress": {
+            "paid": 15,
+            "total": 24
+          },
+          "schedule": "～2026/6",
+          "h": "15/24",
+          "i": "～2026/6"
+        },
+        {
+          "detail": "UFJ",
+          "amount": 6121,
+          "category": "その他",
+          "row": 11,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "家賃",
+          "amount": 74000,
+          "category": "その他",
+          "row": 15,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "LIFELINE",
+          "amount": 25000,
+          "category": "その他",
+          "row": 16,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 404340
+    },
+    {
+      "month": "2025-09",
+      "sheet": "2025年9月分",
+      "income": 491878,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 77516,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 4,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "クオーク",
+          "amount": 27700,
+          "category": "その他",
+          "row": 6,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 5777,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 26100,
+          "category": "分割",
+          "row": 9,
+          "progress": {
+            "paid": 16,
+            "total": 24
+          },
+          "schedule": "～2026/6",
+          "h": "16/24",
+          "i": "～2026/6"
+        },
+        {
+          "detail": "UFJ",
+          "amount": 79885,
+          "category": "その他",
+          "row": 11,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 254978
+    },
+    {
+      "month": "2025-10",
+      "sheet": "2025年10月分",
+      "income": 508520,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 4,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "クオーク",
+          "amount": 27700,
+          "category": "その他",
+          "row": 6,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 5777,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 26100,
+          "category": "分割",
+          "row": 9,
+          "progress": {
+            "paid": 15,
+            "total": 24
+          },
+          "schedule": "～2026/6",
+          "h": "15/24",
+          "i": "～2026/6"
+        },
+        {
+          "detail": "UFJ",
+          "amount": 6121,
+          "category": "その他",
+          "row": 11,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 103698
+    },
+    {
+      "month": "2025-11",
+      "sheet": "2025年11月分",
+      "income": 508520,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 6,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "クオーク",
+          "amount": 27700,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾン",
+          "amount": 8125,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 4101,
+          "category": "その他",
+          "row": 9,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 26100,
+          "category": "分割",
+          "row": 10,
+          "progress": {
+            "paid": 15,
+            "total": 24
+          },
+          "schedule": "～2026/6",
+          "h": "15/24",
+          "i": "～2026/6"
+        },
+        {
+          "detail": "UFJ",
+          "amount": 6121,
+          "category": "その他",
+          "row": 12,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 110147
+    },
+    {
+      "month": "2026-02",
+      "sheet": "2026年2月分",
+      "income": 0,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 31965,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 18000,
+          "category": "その他",
+          "row": 4,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 5,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 6946,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 16711,
+          "category": "その他",
+          "row": 9,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "UFJ",
+          "amount": 32744,
+          "category": "その他",
+          "row": 11,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 126366
+    },
+    {
+      "month": "2026-04",
+      "sheet": "2026年4月分",
+      "income": 286636,
+      "balance": 130000,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 82513,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 100000,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾン",
+          "amount": 5900,
+          "category": "その他",
+          "row": 9,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 3813,
+          "category": "その他",
+          "row": 12,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "UFJ",
+          "amount": 29361,
+          "category": "その他",
+          "row": 15,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "京王友の会",
+          "amount": 10000,
+          "category": "その他",
+          "row": 18,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "VEGA",
+          "amount": 4000,
+          "category": "その他",
+          "row": 20,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "モビット",
+          "amount": 11000,
+          "category": "その他",
+          "row": 26,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 266587
+    },
+    {
+      "month": "2026-05",
+      "sheet": "2026年5月分",
+      "income": 262104,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 126568,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 14000,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾン",
+          "amount": 46121,
+          "category": "その他",
+          "row": 9,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 13913,
+          "category": "その他",
+          "row": 11,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "UFJ",
+          "amount": -933,
+          "category": "その他",
+          "row": 14,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "京王友の会",
+          "amount": 10000,
+          "category": "その他",
+          "row": 17,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "モビット",
+          "amount": 11000,
+          "category": "その他",
+          "row": 20,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "家賃",
+          "amount": 74000,
+          "category": "その他",
+          "row": 23,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "LIFELINE",
+          "amount": 25000,
+          "category": "その他",
+          "row": 24,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 339669
+    },
+    {
+      "month": "2026-06",
+      "sheet": "2026年6月分",
+      "income": 455705,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "R",
+          "amount": 15879,
+          "category": "リボ",
+          "row": 2,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "バンクイック",
+          "amount": 14000,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾン",
+          "amount": 40219,
+          "category": "分割",
+          "row": 9,
+          "progress": {
+            "paid": 2026,
+            "total": 10
+          },
+          "schedule": "~2026/10",
+          "h": null,
+          "i": "~2026/10"
+        },
+        {
+          "detail": "エポス",
+          "amount": 10001,
+          "category": "その他",
+          "row": 12,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "UFJ",
+          "amount": 7800,
+          "category": "その他",
+          "row": 14,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "京王友の会",
+          "amount": 10000,
+          "category": "その他",
+          "row": 17,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "モビット",
+          "amount": 11000,
+          "category": "その他",
+          "row": 20,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "R",
+          "amount": 48000,
+          "category": "リボ",
+          "row": 21,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "千葉銀",
+          "amount": 11000,
+          "category": "その他",
+          "row": 22,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "未納分",
+          "amount": 2128,
+          "category": "その他",
+          "row": 23,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "家賃",
+          "amount": 76000,
+          "category": "その他",
+          "row": 26,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "LIFELINE",
+          "amount": 25000,
+          "category": "その他",
+          "row": 27,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "Gas",
+          "amount": 6000,
+          "category": "その他",
+          "row": 29,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 297027
+    },
+    {
+      "month": "2026-07",
+      "sheet": "2026年7月分",
+      "income": 598583,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "バンクイック",
+          "amount": 14000,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "イオン",
+          "amount": 20824,
+          "category": "その他",
+          "row": 11,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "エポス",
+          "amount": 3702,
+          "category": "その他",
+          "row": 12,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "UFJ",
+          "amount": 35812,
+          "category": "その他",
+          "row": 14,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "京王友の会",
+          "amount": 10000,
+          "category": "その他",
+          "row": 17,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "モビット",
+          "amount": 11000,
+          "category": "その他",
+          "row": 20,
+          "progress": null,
+          "schedule": "残",
+          "h": null,
+          "i": "残"
+        },
+        {
+          "detail": "R",
+          "amount": 59620,
+          "category": "リボ",
+          "row": 21,
+          "progress": null,
+          "schedule": "リボ",
+          "h": null,
+          "i": "リボ"
+        },
+        {
+          "detail": "千葉銀",
+          "amount": 10000,
+          "category": "その他",
+          "row": 24,
+          "progress": null,
+          "schedule": "残",
+          "h": null,
+          "i": "残"
+        },
+        {
+          "detail": "未納分",
+          "amount": 2128,
+          "category": "その他",
+          "row": 25,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "家賃",
+          "amount": 76000,
+          "category": "その他",
+          "row": 27,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "ガス・電気",
+          "amount": 10041,
+          "category": "電気",
+          "row": 28,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "年金",
+          "amount": 53230,
+          "category": "その他",
+          "row": 29,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "水道",
+          "amount": 1522,
+          "category": "水道",
+          "row": 30,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "Gas",
+          "amount": 1010,
+          "category": "その他",
+          "row": 32,
+          "progress": null,
+          "schedule": "160000",
+          "h": null,
+          "i": "160000"
+        }
+      ],
+      "paymentTotal": 328889
+    },
+    {
+      "month": "2026-08",
+      "sheet": "2026年8月分",
+      "income": 582237,
+      "balance": null,
+      "payments": [
+        {
+          "detail": "バンクイック",
+          "amount": 14000,
+          "category": "その他",
+          "row": 7,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "セゾンML",
+          "amount": 20000,
+          "category": "その他",
+          "row": 8,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "京王友の会",
+          "amount": 10000,
+          "category": "その他",
+          "row": 17,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "モビット",
+          "amount": 11000,
+          "category": "その他",
+          "row": 20,
+          "progress": null,
+          "schedule": "残",
+          "h": null,
+          "i": "残"
+        },
+        {
+          "detail": "R",
+          "amount": 59620,
+          "category": "リボ",
+          "row": 21,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "千葉銀",
+          "amount": 10000,
+          "category": "その他",
+          "row": 22,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "未納分",
+          "amount": 2128,
+          "category": "その他",
+          "row": 23,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "家賃",
+          "amount": 76000,
+          "category": "その他",
+          "row": 26,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "ガス・電気",
+          "amount": 10041,
+          "category": "電気",
+          "row": 27,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "年金",
+          "amount": 53230,
+          "category": "その他",
+          "row": 28,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        },
+        {
+          "detail": "水道",
+          "amount": 1522,
+          "category": "水道",
+          "row": 29,
+          "progress": null,
+          "schedule": null,
+          "h": null,
+          "i": null
+        }
+      ],
+      "paymentTotal": 267541
+    }
+  ],
+  "paymentItems": [
+    {
+      "name": "R",
+      "type": "リボ",
+      "monthly": 59620,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": "リボ",
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 93348,
+          "row": 2
+        },
+        {
+          "month": "2025-07",
+          "amount": 118827,
+          "row": 2
+        },
+        {
+          "month": "2025-08",
+          "amount": 156389,
+          "row": 2
+        },
+        {
+          "month": "2025-09",
+          "amount": 77516,
+          "row": 2
+        },
+        {
+          "month": "2026-02",
+          "amount": 31965,
+          "row": 2
+        },
+        {
+          "month": "2026-04",
+          "amount": 82513,
+          "row": 2
+        },
+        {
+          "month": "2026-05",
+          "amount": 126568,
+          "row": 2
+        },
+        {
+          "month": "2026-06",
+          "amount": 15879,
+          "row": 2
+        },
+        {
+          "month": "2026-06",
+          "amount": 48000,
+          "row": 21
+        },
+        {
+          "month": "2026-07",
+          "amount": 59620,
+          "row": 21
+        },
+        {
+          "month": "2026-08",
+          "amount": 59620,
+          "row": 21
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "バンクイック",
+      "type": "その他",
+      "monthly": 14000,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 18000,
+          "row": 3
+        },
+        {
+          "month": "2025-07",
+          "amount": 18000,
+          "row": 3
+        },
+        {
+          "month": "2025-08",
+          "amount": 18000,
+          "row": 4
+        },
+        {
+          "month": "2025-09",
+          "amount": 18000,
+          "row": 4
+        },
+        {
+          "month": "2025-10",
+          "amount": 18000,
+          "row": 4
+        },
+        {
+          "month": "2025-11",
+          "amount": 18000,
+          "row": 5
+        },
+        {
+          "month": "2026-02",
+          "amount": 18000,
+          "row": 4
+        },
+        {
+          "month": "2026-04",
+          "amount": 100000,
+          "row": 7
+        },
+        {
+          "month": "2026-05",
+          "amount": 14000,
+          "row": 7
+        },
+        {
+          "month": "2026-06",
+          "amount": 14000,
+          "row": 7
+        },
+        {
+          "month": "2026-07",
+          "amount": 14000,
+          "row": 7
+        },
+        {
+          "month": "2026-08",
+          "amount": 14000,
+          "row": 7
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "クオーク",
+      "type": "その他",
+      "monthly": 27700,
+      "latestMonth": "2025-11",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 27700,
+          "row": 4
+        },
+        {
+          "month": "2025-07",
+          "amount": 27700,
+          "row": 5
+        },
+        {
+          "month": "2025-08",
+          "amount": 27700,
+          "row": 6
+        },
+        {
+          "month": "2025-09",
+          "amount": 27700,
+          "row": 6
+        },
+        {
+          "month": "2025-10",
+          "amount": 27700,
+          "row": 6
+        },
+        {
+          "month": "2025-11",
+          "amount": 27700,
+          "row": 7
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "サガミ",
+      "type": "その他",
+      "monthly": 990,
+      "latestMonth": "2025-07",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 990,
+          "row": 5
+        },
+        {
+          "month": "2025-07",
+          "amount": 990,
+          "row": 6
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "セゾン",
+      "type": "その他",
+      "monthly": 46121,
+      "latestMonth": "2026-05",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 85542,
+          "row": 6
+        },
+        {
+          "month": "2025-08",
+          "amount": 51030,
+          "row": 7
+        },
+        {
+          "month": "2025-11",
+          "amount": 8125,
+          "row": 8
+        },
+        {
+          "month": "2026-04",
+          "amount": 5900,
+          "row": 9
+        },
+        {
+          "month": "2026-05",
+          "amount": 46121,
+          "row": 9
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "エポス",
+      "type": "その他",
+      "monthly": 3702,
+      "latestMonth": "2026-07",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 73217,
+          "row": 8
+        },
+        {
+          "month": "2025-07",
+          "amount": 26100,
+          "row": 9
+        },
+        {
+          "month": "2026-02",
+          "amount": 16711,
+          "row": 9
+        },
+        {
+          "month": "2026-06",
+          "amount": 10001,
+          "row": 12
+        },
+        {
+          "month": "2026-07",
+          "amount": 3702,
+          "row": 12
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "UFJ",
+      "type": "その他",
+      "monthly": 35812,
+      "latestMonth": "2026-07",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-06",
+          "amount": 10178,
+          "row": 10
+        },
+        {
+          "month": "2025-08",
+          "amount": 6121,
+          "row": 11
+        },
+        {
+          "month": "2025-09",
+          "amount": 79885,
+          "row": 11
+        },
+        {
+          "month": "2025-10",
+          "amount": 6121,
+          "row": 11
+        },
+        {
+          "month": "2025-11",
+          "amount": 6121,
+          "row": 12
+        },
+        {
+          "month": "2026-02",
+          "amount": 32744,
+          "row": 11
+        },
+        {
+          "month": "2026-04",
+          "amount": 29361,
+          "row": 15
+        },
+        {
+          "month": "2026-05",
+          "amount": -933,
+          "row": 14
+        },
+        {
+          "month": "2026-06",
+          "amount": 7800,
+          "row": 14
+        },
+        {
+          "month": "2026-07",
+          "amount": 35812,
+          "row": 14
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "セゾンML",
+      "type": "その他",
+      "monthly": 20000,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-07",
+          "amount": 20000,
+          "row": 4
+        },
+        {
+          "month": "2025-08",
+          "amount": 20000,
+          "row": 5
+        },
+        {
+          "month": "2025-09",
+          "amount": 20000,
+          "row": 5
+        },
+        {
+          "month": "2025-10",
+          "amount": 20000,
+          "row": 5
+        },
+        {
+          "month": "2025-11",
+          "amount": 20000,
+          "row": 6
+        },
+        {
+          "month": "2026-02",
+          "amount": 20000,
+          "row": 5
+        },
+        {
+          "month": "2026-04",
+          "amount": 20000,
+          "row": 8
+        },
+        {
+          "month": "2026-05",
+          "amount": 20000,
+          "row": 8
+        },
+        {
+          "month": "2026-06",
+          "amount": 20000,
+          "row": 8
+        },
+        {
+          "month": "2026-07",
+          "amount": 20000,
+          "row": 8
+        },
+        {
+          "month": "2026-08",
+          "amount": 20000,
+          "row": 8
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "エポス",
+      "type": "分割",
+      "monthly": 26100,
+      "latestMonth": "2025-11",
+      "progress": {
+        "paid": 15,
+        "total": 24
+      },
+      "end": "～2026/6",
+      "history": [
+        {
+          "month": "2025-08",
+          "amount": 26100,
+          "row": 9
+        },
+        {
+          "month": "2025-09",
+          "amount": 26100,
+          "row": 9
+        },
+        {
+          "month": "2025-10",
+          "amount": 26100,
+          "row": 9
+        },
+        {
+          "month": "2025-11",
+          "amount": 26100,
+          "row": 10
+        }
+      ],
+      "remainingCount": 9,
+      "remainingAmount": 234900
+    },
+    {
+      "name": "家賃",
+      "type": "その他",
+      "monthly": 76000,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-08",
+          "amount": 74000,
+          "row": 15
+        },
+        {
+          "month": "2026-05",
+          "amount": 74000,
+          "row": 23
+        },
+        {
+          "month": "2026-06",
+          "amount": 76000,
+          "row": 26
+        },
+        {
+          "month": "2026-07",
+          "amount": 76000,
+          "row": 27
+        },
+        {
+          "month": "2026-08",
+          "amount": 76000,
+          "row": 26
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "LIFELINE",
+      "type": "その他",
+      "monthly": 25000,
+      "latestMonth": "2026-06",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-08",
+          "amount": 25000,
+          "row": 16
+        },
+        {
+          "month": "2026-05",
+          "amount": 25000,
+          "row": 24
+        },
+        {
+          "month": "2026-06",
+          "amount": 25000,
+          "row": 27
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "イオン",
+      "type": "その他",
+      "monthly": 20824,
+      "latestMonth": "2026-07",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2025-09",
+          "amount": 5777,
+          "row": 8
+        },
+        {
+          "month": "2025-10",
+          "amount": 5777,
+          "row": 8
+        },
+        {
+          "month": "2025-11",
+          "amount": 4101,
+          "row": 9
+        },
+        {
+          "month": "2026-02",
+          "amount": 6946,
+          "row": 8
+        },
+        {
+          "month": "2026-04",
+          "amount": 3813,
+          "row": 12
+        },
+        {
+          "month": "2026-05",
+          "amount": 13913,
+          "row": 11
+        },
+        {
+          "month": "2026-07",
+          "amount": 20824,
+          "row": 11
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "京王友の会",
+      "type": "その他",
+      "monthly": 10000,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2026-04",
+          "amount": 10000,
+          "row": 18
+        },
+        {
+          "month": "2026-05",
+          "amount": 10000,
+          "row": 17
+        },
+        {
+          "month": "2026-06",
+          "amount": 10000,
+          "row": 17
+        },
+        {
+          "month": "2026-07",
+          "amount": 10000,
+          "row": 17
+        },
+        {
+          "month": "2026-08",
+          "amount": 10000,
+          "row": 17
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "VEGA",
+      "type": "その他",
+      "monthly": 4000,
+      "latestMonth": "2026-04",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2026-04",
+          "amount": 4000,
+          "row": 20
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "モビット",
+      "type": "その他",
+      "monthly": 11000,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": "残",
+      "history": [
+        {
+          "month": "2026-04",
+          "amount": 11000,
+          "row": 26
+        },
+        {
+          "month": "2026-05",
+          "amount": 11000,
+          "row": 20
+        },
+        {
+          "month": "2026-06",
+          "amount": 11000,
+          "row": 20
+        },
+        {
+          "month": "2026-07",
+          "amount": 11000,
+          "row": 20
+        },
+        {
+          "month": "2026-08",
+          "amount": 11000,
+          "row": 20
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "セゾン",
+      "type": "分割",
+      "monthly": 40219,
+      "latestMonth": "2026-06",
+      "progress": {
+        "paid": 2026,
+        "total": 10
+      },
+      "end": "~2026/10",
+      "history": [
+        {
+          "month": "2026-06",
+          "amount": 40219,
+          "row": 9
+        }
+      ],
+      "remainingCount": 0,
+      "remainingAmount": 0
+    },
+    {
+      "name": "千葉銀",
+      "type": "その他",
+      "monthly": 10000,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": "残",
+      "history": [
+        {
+          "month": "2026-06",
+          "amount": 11000,
+          "row": 22
+        },
+        {
+          "month": "2026-07",
+          "amount": 10000,
+          "row": 24
+        },
+        {
+          "month": "2026-08",
+          "amount": 10000,
+          "row": 22
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "未納分",
+      "type": "その他",
+      "monthly": 2128,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2026-06",
+          "amount": 2128,
+          "row": 23
+        },
+        {
+          "month": "2026-07",
+          "amount": 2128,
+          "row": 25
+        },
+        {
+          "month": "2026-08",
+          "amount": 2128,
+          "row": 23
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "Gas",
+      "type": "その他",
+      "monthly": 1010,
+      "latestMonth": "2026-07",
+      "progress": null,
+      "end": "160000",
+      "history": [
+        {
+          "month": "2026-06",
+          "amount": 6000,
+          "row": 29
+        },
+        {
+          "month": "2026-07",
+          "amount": 1010,
+          "row": 32
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "ガス・電気",
+      "type": "電気",
+      "monthly": 10041,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2026-07",
+          "amount": 10041,
+          "row": 28
+        },
+        {
+          "month": "2026-08",
+          "amount": 10041,
+          "row": 27
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "年金",
+      "type": "その他",
+      "monthly": 53230,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2026-07",
+          "amount": 53230,
+          "row": 29
+        },
+        {
+          "month": "2026-08",
+          "amount": 53230,
+          "row": 28
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    },
+    {
+      "name": "水道",
+      "type": "水道",
+      "monthly": 1522,
+      "latestMonth": "2026-08",
+      "progress": null,
+      "end": null,
+      "history": [
+        {
+          "month": "2026-07",
+          "amount": 1522,
+          "row": 30
+        },
+        {
+          "month": "2026-08",
+          "amount": 1522,
+          "row": 29
+        }
+      ],
+      "remainingCount": null,
+      "remainingAmount": null
+    }
+  ],
   "sheets": {
     "2025年6月分": {
       "title": "2025年6月分",
