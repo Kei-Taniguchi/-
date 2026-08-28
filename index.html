@@ -8,9 +8,14 @@
 </head>
 <body>
   <main class="container">
-    <header><div><p class="eyebrow">HOUSEHOLD BUDGET</p><h1>家計簿・支払い計画</h1><p>実績を入力すると、月別の収支・支払い残高・完済予定を自動更新します。</p></div><button id="resetBtn" class="secondary">サンプルデータに戻す</button></header>
+    <header><div><p class="eyebrow">HOUSEHOLD BUDGET</p><h1>家計簿・支払い計画</h1><p>実績を入力すると、月別の収支・支払い残高・完済予定を自動更新します。</p><p id="dataStatus" class="data-status">Excelデータを読み込み中…</p></div><button id="resetBtn" class="secondary">サンプルデータに戻す</button></header>
 
     <section class="cards" id="summary"></section>
+
+    <section class="panel" id="excelPanel">
+      <div class="panel-head"><div><h2>Excel取り込み状況</h2><p>GitHub Actionsで生成した <code>data/budget-data.json</code> をこの画面から自動読み込みします。</p></div></div>
+      <div id="excelSummary"></div>
+    </section>
 
     <section class="panel">
       <div class="panel-head"><div><h2>個別支払い</h2><p>予定額と実績額を分けて管理。実績入力で残額・完済状況を更新。</p></div><button id="addPayment">支払いを追加</button></div>
