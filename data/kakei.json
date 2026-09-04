@@ -1,17 +1,9 @@
 {
-  "generatedAt": "2026-09-04T06:31:09",
+  "generatedAt": "2026-09-04T06:41:25",
   "source": "/home/runner/work/-/-/家計.xlsm",
   "rules": {
-    "incomeColumns": [
-      "A",
-      "B"
-    ],
-    "incomeExcludedFrom": "2026-07",
-    "excludedColumnsFrom2026-07": [
-      "A",
-      "B",
-      "C"
-    ],
+    "incomeColumn": "B",
+    "incomeRule": "各月シートのB列に記載された数値をすべて合計。ただしB7は残高セルのため収入から除外",
     "balanceCell": "B7",
     "paymentDetailColumn": "E",
     "paymentAmountColumn": "G",
@@ -286,7 +278,7 @@
     {
       "month": "2026-07",
       "sheet": "2026年7月分",
-      "income": 0,
+      "income": 1001746,
       "expenseTotal": 405509,
       "balance": 6846,
       "payments": [
@@ -320,7 +312,7 @@
     {
       "month": "2026-08",
       "sheet": "2026年8月分",
-      "income": 0,
+      "income": 523040,
       "expenseTotal": 241330,
       "balance": null,
       "payments": [
@@ -347,7 +339,7 @@
     {
       "month": "2026-09",
       "sheet": "2026年9月分",
-      "income": 0,
+      "income": 563210,
       "expenseTotal": 271617,
       "balance": null,
       "payments": [],
@@ -356,7 +348,7 @@
     {
       "month": "2026-10",
       "sheet": "2026年10月分",
-      "income": 0,
+      "income": 943,
       "expenseTotal": 249734,
       "balance": null,
       "payments": [
@@ -380,7 +372,7 @@
     {
       "month": "2026-11",
       "sheet": "2026年11月分",
-      "income": 0,
+      "income": 943,
       "expenseTotal": 314527,
       "balance": null,
       "payments": [
