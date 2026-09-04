@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T05:09:43",
+  "generatedAt": "2026-09-04T05:58:53",
   "source": "/home/runner/work/-/-/家計.xlsm",
   "rules": {
     "incomeColumns": [
@@ -337,16 +337,8 @@
       "sheet": "2026年9月分",
       "income": 0,
       "balance": null,
-      "payments": [
-        {
-          "name": "R",
-          "type": "リボ",
-          "amount": 59620,
-          "progress": null,
-          "row": 21
-        }
-      ],
-      "paymentTotal": 59620
+      "payments": [],
+      "paymentTotal": 0
     },
     {
       "month": "2026-10",
@@ -524,7 +516,7 @@
       "total": 694200,
       "monthly": 69420,
       "end": "~2027/2",
-      "remainingAmount": 415581,
+      "remainingAmount": 405647,
       "row": 5
     },
     {
@@ -542,7 +534,7 @@
       "total": 241316,
       "monthly": 40219,
       "end": "~2026/10",
-      "remainingAmount": 120659,
+      "remainingAmount": null,
       "row": 12
     },
     {
@@ -560,7 +552,7 @@
       "total": 1000000,
       "monthly": 14000,
       "end": null,
-      "remainingAmount": 644428,
+      "remainingAmount": 637631,
       "row": 15
     }
   ]
