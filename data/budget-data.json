@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T05:58:53",
+  "generatedAt": "2026-09-04T06:31:09",
   "source": "/home/runner/work/-/-/家計.xlsm",
   "rules": {
     "incomeColumns": [
@@ -74,6 +74,7 @@
       "month": "2025-06",
       "sheet": "2025年6月分",
       "income": 265282,
+      "expenseTotal": 308975,
       "balance": null,
       "payments": [
         {
@@ -90,6 +91,7 @@
       "month": "2025-07",
       "sheet": "2025年7月分",
       "income": 168487,
+      "expenseTotal": 211617,
       "balance": null,
       "payments": [
         {
@@ -106,6 +108,7 @@
       "month": "2025-08",
       "sheet": "2025年8月分",
       "income": 508520,
+      "expenseTotal": 404340,
       "balance": null,
       "payments": [
         {
@@ -132,6 +135,7 @@
       "month": "2025-09",
       "sheet": "2025年9月分",
       "income": 491878,
+      "expenseTotal": 254978,
       "balance": null,
       "payments": [
         {
@@ -158,6 +162,7 @@
       "month": "2025-10",
       "sheet": "2025年10月分",
       "income": 508520,
+      "expenseTotal": 103698,
       "balance": null,
       "payments": [
         {
@@ -177,6 +182,7 @@
       "month": "2025-11",
       "sheet": "2025年11月分",
       "income": 508520,
+      "expenseTotal": 110147,
       "balance": null,
       "payments": [
         {
@@ -196,6 +202,7 @@
       "month": "2026-02",
       "sheet": "2026年2月分",
       "income": 0,
+      "expenseTotal": 126366,
       "balance": null,
       "payments": [
         {
@@ -212,6 +219,7 @@
       "month": "2026-04",
       "sheet": "2026年4月分",
       "income": 286636,
+      "expenseTotal": 266587,
       "balance": 130000,
       "payments": [
         {
@@ -228,6 +236,7 @@
       "month": "2026-05",
       "sheet": "2026年5月分",
       "income": 262104,
+      "expenseTotal": 339669,
       "balance": null,
       "payments": [
         {
@@ -244,6 +253,7 @@
       "month": "2026-06",
       "sheet": "2026年6月分",
       "income": 455705,
+      "expenseTotal": 297027,
       "balance": null,
       "payments": [
         {
@@ -277,6 +287,7 @@
       "month": "2026-07",
       "sheet": "2026年7月分",
       "income": 0,
+      "expenseTotal": 405509,
       "balance": 6846,
       "payments": [
         {
@@ -310,6 +321,7 @@
       "month": "2026-08",
       "sheet": "2026年8月分",
       "income": 0,
+      "expenseTotal": 241330,
       "balance": null,
       "payments": [
         {
@@ -336,6 +348,7 @@
       "month": "2026-09",
       "sheet": "2026年9月分",
       "income": 0,
+      "expenseTotal": 271617,
       "balance": null,
       "payments": [],
       "paymentTotal": 0
@@ -344,6 +357,7 @@
       "month": "2026-10",
       "sheet": "2026年10月分",
       "income": 0,
+      "expenseTotal": 249734,
       "balance": null,
       "payments": [
         {
@@ -367,6 +381,7 @@
       "month": "2026-11",
       "sheet": "2026年11月分",
       "income": 0,
+      "expenseTotal": 314527,
       "balance": null,
       "payments": [
         {
