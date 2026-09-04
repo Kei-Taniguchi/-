@@ -25,13 +25,15 @@ jobs:
       - name: 必要ライブラリをインストール
         run: pip install -r requirements.txt
 
-      - name: 家計.xlsmをJSONへ変換
-        run: python convert_kakei.py
+      - name: 家計.xlsmをWebアプリ用JSONへ変換
+        run: |
+          python scripts/import_budget.py
+          cp data/budget-data.json data/kakei.json
 
       - name: JSONをコミット
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/kakei.json
-          git diff --cached --quiet || git commit -m "家計データをJSONに変換"
+          git add data/budget-data.json data/kakei.json
+          git diff --cached --quiet || git commit -m "家計データをWebアプリへ接続"
           git push
