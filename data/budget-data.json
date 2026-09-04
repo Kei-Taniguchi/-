@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T04:32:22",
+  "generatedAt": "2026-09-04T04:45:10",
   "source": "家計.xlsm",
   "rules": {
     "incomeColumns": [
@@ -19,45 +19,53 @@
       "H",
       "I"
     ],
-    "completedRows": "分割分シートのグレーアウト行は除外"
+    "completedRows": "分割分シートのグレーアウト行は除外",
+    "scheduleSource": "各カード・サービス公式HP"
   },
   "cardSchedules": [
     {
       "name": "イオンカード",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "翌月2日",
+      "締め日": "毎月10日",
+      "source": "https://www.aeon.co.jp/service/shopping/"
     },
     {
       "name": "セゾンカード",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "翌月4日",
+      "締め日": "毎月10日",
+      "source": "https://www.saisoncard.co.jp/creditcard/"
     },
     {
       "name": "PayPayカード",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "翌月27日",
+      "締め日": "毎月末日",
+      "source": "https://www.paypay-card.co.jp/service/000173.html"
     },
     {
       "name": "UFJ Nicos",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "当月27日",
+      "締め日": "毎月5日",
+      "source": "https://www.cr.mufg.jp/carduse/before/index.html"
     },
     {
       "name": "楽天カード",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "翌月27日",
+      "締め日": "毎月末日",
+      "source": "https://www.rakuten-card.co.jp/support/guide/"
     }
   ],
   "serviceSchedules": [
     {
       "name": "モビット",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "毎月5日・15日・25日・末日のいずれか（契約時に選択）",
+      "締め日": "カードの締め日は設定なし（返済期日方式）",
+      "source": "https://www.smbc-card.com/nyukai/loan/conditions.jsp"
     },
     {
       "name": "千葉銀",
-      "引落": "記載なし",
-      "締め日": "記載なし"
+      "引落": "毎月1日（銀行休業日は翌営業日）",
+      "締め日": "カードの締め日は設定なし（カードローン返済方式）",
+      "source": "https://www.chibabank.co.jp/s/lp/card_loan/ad/lp_01/"
     }
   ],
   "months": [
