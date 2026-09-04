@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T06:41:25",
+  "generatedAt": "2026-09-04T08:20:08",
   "source": "/home/runner/work/-/-/家計.xlsm",
   "rules": {
     "incomeColumn": "B",
@@ -11,6 +11,7 @@
       "H",
       "I"
     ],
+    "splitScheduleRule": "各月シートH/I列に回/回または終了年月が記載された行は分割分シート由来として扱い、月別支払い計画の合計へ二重加算しない",
     "completedRows": "分割分シートのグレーアウト行は除外",
     "scheduleSource": "各カード・サービス公式HP",
     "sourceFile": "OneDriveのデスクトップにある家計.xlsm（環境変数で変更可能）"
@@ -74,7 +75,9 @@
           "type": "リボ",
           "amount": 93348,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 93348
@@ -91,7 +94,9 @@
           "type": "リボ",
           "amount": 118827,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 118827
@@ -108,7 +113,9 @@
           "type": "リボ",
           "amount": 156389,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "エポス",
@@ -118,10 +125,12 @@
             15,
             24
           ],
-          "row": 9
+          "row": 9,
+          "fromSplitSchedule": true,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 182489
+      "paymentTotal": 156389
     },
     {
       "month": "2025-09",
@@ -135,7 +144,9 @@
           "type": "リボ",
           "amount": 77516,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "エポス",
@@ -145,10 +156,12 @@
             16,
             24
           ],
-          "row": 9
+          "row": 9,
+          "fromSplitSchedule": true,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 103616
+      "paymentTotal": 77516
     },
     {
       "month": "2025-10",
@@ -165,10 +178,12 @@
             15,
             24
           ],
-          "row": 9
+          "row": 9,
+          "fromSplitSchedule": true,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 26100
+      "paymentTotal": 0
     },
     {
       "month": "2025-11",
@@ -185,10 +200,12 @@
             15,
             24
           ],
-          "row": 10
+          "row": 10,
+          "fromSplitSchedule": true,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 26100
+      "paymentTotal": 0
     },
     {
       "month": "2026-02",
@@ -202,7 +219,9 @@
           "type": "リボ",
           "amount": 31965,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 31965
@@ -219,7 +238,9 @@
           "type": "リボ",
           "amount": 82513,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 82513
@@ -236,7 +257,9 @@
           "type": "リボ",
           "amount": 126568,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 126568
@@ -253,7 +276,9 @@
           "type": "リボ",
           "amount": 15879,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "セゾン",
@@ -263,17 +288,21 @@
             2026,
             10
           ],
-          "row": 9
+          "row": 9,
+          "fromSplitSchedule": true,
+          "cardCompany": "セゾンカード"
         },
         {
           "name": "R",
           "type": "リボ",
           "amount": 48000,
           "progress": null,
-          "row": 21
+          "row": 21,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 104098
+      "paymentTotal": 63879
     },
     {
       "month": "2026-07",
@@ -287,7 +316,9 @@
           "type": "リボ",
           "amount": 14901,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "セゾン",
@@ -297,17 +328,21 @@
             3,
             6
           ],
-          "row": 10
+          "row": 10,
+          "fromSplitSchedule": true,
+          "cardCompany": "セゾンカード"
         },
         {
           "name": "R",
           "type": "リボ",
           "amount": 59620,
           "progress": null,
-          "row": 19
+          "row": 19,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 114868
+      "paymentTotal": 74521
     },
     {
       "month": "2026-08",
@@ -321,7 +356,9 @@
           "type": "リボ",
           "amount": 18734,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "携帯",
@@ -331,10 +368,12 @@
             2026,
             8
           ],
-          "row": 26
+          "row": 26,
+          "fromSplitSchedule": true,
+          "cardCompany": null
         }
       ],
-      "paymentTotal": 31881
+      "paymentTotal": 18734
     },
     {
       "month": "2026-09",
@@ -357,14 +396,18 @@
           "type": "リボ",
           "amount": 37551,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "R",
           "type": "リボ",
           "amount": 59620,
           "progress": null,
-          "row": 21
+          "row": 21,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 97171
@@ -381,14 +424,18 @@
           "type": "リボ",
           "amount": 37551,
           "progress": null,
-          "row": 2
+          "row": 2,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         },
         {
           "name": "R",
           "type": "リボ",
           "amount": 59620,
           "progress": null,
-          "row": 21
+          "row": 21,
+          "fromSplitSchedule": false,
+          "cardCompany": null
         }
       ],
       "paymentTotal": 97171
@@ -524,6 +571,11 @@
       "monthly": 69420,
       "end": "~2027/2",
       "remainingAmount": 405647,
+      "progress": [
+        2027,
+        2
+      ],
+      "cardCompany": null,
       "row": 5
     },
     {
@@ -533,6 +585,8 @@
       "monthly": 50688,
       "end": null,
       "remainingAmount": null,
+      "progress": null,
+      "cardCompany": "イオンカード",
       "row": 7
     },
     {
@@ -542,6 +596,11 @@
       "monthly": 40219,
       "end": "~2026/10",
       "remainingAmount": null,
+      "progress": [
+        2026,
+        10
+      ],
+      "cardCompany": "UFJ Nicos",
       "row": 12
     },
     {
@@ -551,6 +610,11 @@
       "monthly": 20000,
       "end": "～2032/4",
       "remainingAmount": 963107,
+      "progress": [
+        2032,
+        4
+      ],
+      "cardCompany": null,
       "row": 14
     },
     {
@@ -560,6 +624,8 @@
       "monthly": 14000,
       "end": null,
       "remainingAmount": 637631,
+      "progress": null,
+      "cardCompany": null,
       "row": 15
     }
   ]
