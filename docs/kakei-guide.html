@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>家計Webアプリ 操作・復旧ガイド</title>
 <style>
-body{font-family:system-ui,-apple-system,"Segoe UI","Yu Gothic",Meiryo,sans-serif;line-height:1.8;margin:0;background:#f6f8fb;color:#263238}main{max-width:980px;margin:auto;padding:32px 20px 60px}header{background:#fff;padding:28px;border-radius:16px;box-shadow:0 4px 18px #00000010;margin-bottom:24px}h1{margin-top:0;color:#245b8f}h2{margin-top:32px;color:#245b8f;border-left:5px solid #79b7e8;padding-left:12px}h3{color:#426b89}.card{background:#fff;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 3px 14px #0000000d}.ok{background:#eef9f1;border-left:5px solid #52a86b;padding:14px}.warn{background:#fff7e8;border-left:5px solid #e2a63b;padding:14px}.sync{background:#eef6ff;border-left:5px solid #76b8e8;padding:14px}code{background:#eef1f5;padding:3px 6px;border-radius:5px}pre{background:#202b36;color:#f5f7fa;padding:16px;border-radius:10px;overflow:auto}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e5e9ee;padding:10px;text-align:left;vertical-align:top}th{background:#f0f5f9}li{margin:6px 0}.step{font-weight:700;color:#245b8f}.small{color:#667781;font-size:.92em}</style>
+body{font-family:system-ui,-apple-system,"Segoe UI","Yu Gothic",Meiryo,sans-serif;line-height:1.8;margin:0;background:#f6f8fb;color:#263238}main{max-width:980px;margin:auto;padding:32px 20px 60px}header{background:#fff;padding:28px;border-radius:16px;box-shadow:0 4px 18px #00000010;margin-bottom:24px}h1{margin-top:0;color:#245b8f}h2{margin-top:32px;color:#245b8f;border-left:5px solid #79b7e8;padding-left:12px}h3{color:#426b89}.card{background:#fff;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 3px 14px #0000000d}.ok{background:#eef9f1;border-left:5px solid #52a86b;padding:14px}.warn{background:#fff7e8;border-left:5px solid #e2a63b;padding:14px}.sync{background:#eef6ff;border-left:5px solid #76b8e8;padding:14px}.stepbox{background:#f8fbff;border:1px solid #d9e8f5;border-radius:10px;padding:14px;margin:12px 0}.stepnum{font-weight:700;color:#245b8f;font-size:1.05em}code{background:#eef1f5;padding:3px 6px;border-radius:5px}pre{background:#202b36;color:#f5f7fa;padding:16px;border-radius:10px;overflow:auto}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e5e9ee;padding:10px;text-align:left;vertical-align:top}th{background:#f0f5f9}li{margin:6px 0}.step{font-weight:700;color:#245b8f}.small{color:#667781;font-size:.92em}</style>
 </head>
 <body>
 <main>
@@ -45,38 +45,94 @@ body{font-family:system-ui,-apple-system,"Segoe UI","Yu Gothic",Meiryo,sans-seri
 
 <section class="card">
 <h2>3. Excel「家計.xlsm」と家計簿・支払い計画を同期する方法</h2>
-<div class="sync"><strong>同期の基本：</strong> Excelの最新ファイルをGitHubリポジトリの<code>家計.xlsm</code>に反映すると、GitHub ActionsがExcelを解析し、<code>data/kakei.json</code>を更新します。WebアプリはこのJSONを読み込んで家計簿・支払い計画を表示します。</div>
-<h3>通常の更新手順</h3>
+<div class="sync"><strong>ここが重要：</strong> Excelを変更しただけではWebアプリは自動では更新されません。<strong>①最新Excelを保存 → ②GitHubの家計.xlsmを置き換える → ③GitHubへコミット → ④GitHub Actionsの成功を確認 → ⑤Codespacesを更新 → ⑥ブラウザを再読み込み</strong>まで行うと同期完了です。</div>
+
+<h3>① Excelの最新データを作る</h3>
+<div class="stepbox">
+<div class="stepnum">手順1：家計.xlsmを更新して保存</div>
 <ol>
-<li><span class="step">Excelの「家計.xlsm」を更新・保存する。</span><br>月別シート、支払い計画、<code>分割分</code>シートなど、反映したい内容をExcel側で変更します。</li>
-<li><span class="step">最新の「家計.xlsm」をGitHubリポジトリに反映する。</span><br>リポジトリ内の<code>家計.xlsm</code>を最新ファイルに置き換え、GitHubへコミット・Pushします。</li>
-<li><span class="step">GitHub Actionsの完了を待つ。</span><br>Actionsが<code>scripts/import_budget.py</code>でExcelを解析し、<code>data/kakei.json</code>を生成・更新します。</li>
-<li><span class="step">Codespacesで最新データを取得する。</span></li>
+<li>OneDriveなどに保存している<strong>最新の「家計.xlsm」</strong>を開きます。</li>
+<li>月別シート、支払い計画、<code>分割分</code>シートなどを必要に応じて変更します。</li>
+<li>変更後、Excelの<strong>保存</strong>を実行します。</li>
+<li>Excelを閉じるか、少なくとも保存が完了していることを確認します。</li>
 </ol>
+</div>
+
+<h3>② 最新の家計.xlsmをGitHubへアップロードする</h3>
+<div class="stepbox">
+<div class="stepnum">手順2：GitHubリポジトリの家計.xlsmを置き換える</div>
+<ol>
+<li>GitHubでこのリポジトリを開きます。</li>
+<li>リポジトリのファイル一覧から<strong><code>家計.xlsm</code></strong>を確認します。</li>
+<li>リポジトリ画面の<strong>Add file</strong>をクリックします。</li>
+<li><strong>Upload files</strong>を選択します。</li>
+<li>アップロード画面へ、PCに保存した<strong>最新の「家計.xlsm」</strong>をドラッグ＆ドロップします。</li>
+<li>同じ名前の<code>家計.xlsm</code>が既にリポジトリにある場合は、<strong>置き換える対象が「家計.xlsm」であること</strong>を確認します。</li>
+<li>画面下部の<strong>Commit changes</strong>をクリックします。</li>
+</ol>
+<div class="warn"><strong>注意：</strong> OneDrive上のファイルを変更しただけではGitHubのファイルは変わりません。必ず<strong>最新ファイルをGitHubの<code>家計.xlsm</code>としてアップロードしてCommit</strong>してください。</div>
+</div>
+
+<h3>③ GitHub Actionsを確認する</h3>
+<div class="stepbox">
+<div class="stepnum">手順3：Excelの解析処理が成功したことを確認</div>
+<ol>
+<li>GitHubリポジトリ上部の<strong>Actions</strong>をクリックします。</li>
+<li>最新のワークフロー実行を開きます。</li>
+<li>Excelデータの取り込み処理が実行中なら、完了するまで待ちます。</li>
+<li><strong>緑色のチェック（Success）</strong>になったことを確認します。</li>
+<li>失敗している場合は、赤い<strong>×</strong>の実行を開いてエラー内容を確認します。</li>
+</ol>
+<p>正常終了すると、GitHub Actionsが<code>scripts/import_budget.py</code>で<code>家計.xlsm</code>を解析し、<code>data/kakei.json</code>を生成・更新します。</p>
+</div>
+
+<h3>④ Codespacesへ最新データを取得する</h3>
+<div class="stepbox">
+<div class="stepnum">手順4：CodespacesでGitHubの更新を取得</div>
+<p>Codespacesのターミナルで次を実行します。</p>
 <pre>git pull origin main</pre>
-<ol start="5">
-<li><span class="step">Webアプリを再読み込みする。</span><br>必要に応じて<strong>Ctrl + F5</strong>で強制再読み込みします。</li>
+<p>更新が取得できれば、Codespaces内の<code>data/kakei.json</code>も最新状態になります。</p>
+</div>
+
+<h3>⑤ Webアプリを再読み込みする</h3>
+<div class="stepbox">
+<div class="stepnum">手順5：画面へ反映</div>
+<ol>
+<li>Webアプリを開きます。</li>
+<li>通常の再読み込みを行います。</li>
+<li>古いデータが表示される場合は<strong>Ctrl + F5</strong>で強制再読み込みします。</li>
 </ol>
+</div>
+
 <h3>同期されるデータの流れ</h3>
 <table>
 <tr><th>段階</th><th>データ</th><th>役割</th></tr>
 <tr><td>①</td><td><code>家計.xlsm</code></td><td>Excelで管理している元データ。</td></tr>
-<tr><td>②</td><td><code>scripts/import_budget.py</code></td><td>Excelの月別収支・支払い計画・分割・リボ等を読み取ってWeb用データへ変換。</td></tr>
-<tr><td>③</td><td><code>data/kakei.json</code></td><td>Webアプリが読み込む最新データ。</td></tr>
-<tr><td>④</td><td><code>app.js</code></td><td>JSONを画面に表示。家計簿、支払い計画、分割・リボ残金管理、ガントチャート等を更新。</td></tr>
+<tr><td>②</td><td>GitHub</td><td>最新の<code>家計.xlsm</code>を保存・管理。</td></tr>
+<tr><td>③</td><td>GitHub Actions</td><td>Excelを自動解析。</td></tr>
+<tr><td>④</td><td><code>data/kakei.json</code></td><td>Webアプリが読み込む最新データ。</td></tr>
+<tr><td>⑤</td><td>Webアプリ</td><td>家計簿、支払い計画、分割・リボ残金管理、ガントチャート等を表示。</td></tr>
 </table>
-<div class="warn"><strong>重要：</strong> GitHub Actionsが直接OneDriveの<code>C:\Users\...</code>にあるExcelを監視・同期する仕組みではありません。Actionsが処理するのは<strong>GitHubリポジトリに保存された「家計.xlsm」</strong>です。したがって、ExcelをOneDrive上で変更しただけではWebアプリには反映されません。</div>
+
+<div class="warn"><strong>重要：</strong> GitHub Actionsが直接OneDriveの<code>C:\Users\...</code>にあるExcelを監視・同期する仕組みではありません。Actionsが処理するのは<strong>GitHubリポジトリに保存された「家計.xlsm」</strong>です。</div>
+
 <h3>「分割分」シートを変更した場合</h3>
-<p><code>分割分</code>シートを変更した場合も、同じ同期手順です。<strong>最新の家計.xlsmをGitHubへ反映 → GitHub Actions完了 → Codespacesでgit pull → ブラウザ再読み込み</strong>の順で操作してください。</p>
+<p><code>分割分</code>シートを変更した場合も、上記の手順を最初から最後まで行います。</p>
+<p><strong>Excel保存 → GitHubの家計.xlsmを置き換え → Commit changes → Actions Success確認 → Codespacesでgit pull → ブラウザ再読み込み</strong>です。</p>
 <p>正常に反映されると、Webアプリの<strong>「分割・リボ残金管理」</strong>と<strong>「分割・リボ残金のガントチャート」</strong>にExcel側の更新内容が反映されます。</p>
+
 <h3>同期できたか確認するポイント</h3>
 <ul>
-<li>GitHub上の<code>家計.xlsm</code>の更新日時・コミットが最新になっている。</li>
-<li>GitHub ActionsのExcel解析処理が<strong>Success</strong>になっている。</li>
+<li>GitHub上の<code>家計.xlsm</code>が最新ファイルになっている。</li>
+<li>GitHubの最新コミットに、<code>家計.xlsm</code>の更新が記録されている。</li>
+<li>GitHub Actionsが<strong>Success</strong>になっている。</li>
 <li><code>data/kakei.json</code>の生成日時が更新されている。</li>
-<li>Codespacesで<code>git pull origin main</code>後、Webアプリを再読み込みしている。</li>
-<li>分割・リボの区分や残金が最新のExcel内容になっている。</li>
+<li>Codespacesで<code>git pull origin main</code>が完了している。</li>
+<li>ブラウザを再読み込みしている。</li>
+<li>分割・リボの区分、残金、支払い予定などが最新のExcel内容になっている。</li>
 </ul>
+
+<div class="ok"><strong>毎回これだけ覚えればOK：</strong><br>Excel保存 → GitHubへ家計.xlsmアップロード → <strong>Commit changes</strong> → Actions Success確認 → <code>git pull origin main</code> → ブラウザ再読み込み</div>
 </section>
 
 <section class="card">
@@ -146,8 +202,8 @@ python3 -m http.server 8000</pre>
 <pre>git pull origin main</pre>
 <h3>「Excelを変更したのに画面に反映されない」</h3>
 <p>まず、<strong>最新の家計.xlsmがGitHubリポジトリに反映されているか</strong>を確認します。次にGitHub Actionsの処理完了を確認し、<code>data/kakei.json</code>が更新された後にCodespacesで<code>git pull origin main</code>を実行し、ブラウザを再読み込みします。</p>
-<h3>「OneDriveのExcelを変更したのに反映されない」</h3>
-<p>OneDrive上の変更だけでは反映されません。最新の<code>家計.xlsm</code>を<strong>GitHubリポジトリ側の家計.xlsmに反映してPushする</strong>必要があります。</p>
+<h3>「OneDriveで変更しただけなのに反映されない」</h3>
+<p>OneDrive上のExcelを変更しただけではGitHub側は変更されません。<strong>最新の家計.xlsmをGitHubへアップロード → Commit changes → Actions Success確認</strong>まで行ってください。</p>
 </section>
 
 <section class="card">
@@ -156,9 +212,7 @@ python3 -m http.server 8000</pre>
 <li><strong>502？</strong> → <code>python3 -m http.server 8000</code></li>
 <li><strong>ページは開くが古い？</strong> → <code>git pull origin main</code> → ブラウザ再読み込み</li>
 <li><strong>Excelの数字が違う？</strong> → B列の入力内容とB7（残高セル）を確認</li>
-<li><strong>Excelの更新が反映されない？</strong> → GitHubの<code>家計.xlsm</code>が最新か確認</li>
-<li><strong>データ更新されない？</strong> → GitHub Actionsの完了と<code>data/kakei.json</code>の更新を確認</li>
-<li><strong>Codespacesが古い？</strong> → <code>git pull origin main</code>を実行</li>
+<li><strong>データ更新されない？</strong> → GitHub上の<code>家計.xlsm</code>が最新か → ActionsがSuccessかを確認</li>
 <li><strong>入力できない？</strong> → 入力ルール上の必須項目・金額・カード・分割回数を確認</li>
 </ol>
 </section>
