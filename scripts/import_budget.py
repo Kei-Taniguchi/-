@@ -15,9 +15,6 @@ MONTH_RE = re.compile(r"^(\d{4})年(\d{1,2})月分$")
 RATIO_RE = re.compile(r"(\d+)\s*/\s*(\d+)")
 END_RE = re.compile(r"[～~]\s*(\d{4})\s*/\s*(\d+)")
 
-# Official-site schedule information. These are intentionally kept here rather
-# than extracted from the workbook so the app shows the provider's published
-# standard schedule. Individual contracts/products can differ.
 OFFICIAL_SCHEDULES = [
     {"name": "イオンカード", "引落": "翌月2日", "締め日": "毎月10日", "source": "https://www.aeon.co.jp/service/shopping/"},
     {"name": "セゾンカード", "引落": "翌月4日", "締め日": "毎月10日", "source": "https://www.saisoncard.co.jp/creditcard/"},
@@ -148,7 +145,6 @@ def choose_source():
 
 
 def write_if_changed(result):
-    """Avoid changing generatedAt when the imported budget data is unchanged."""
     existing = None
     if OUT.exists():
         try:
@@ -189,10 +185,12 @@ def main():
             amount = ws.cell(row_no, 7).value
             if detail is not None and number(amount) and amount != 0:
                 raw_expenses.append({"name": str(detail), "amount": amount})
+        expense_total = sum(p["amount"] for p in raw_expenses)
         months.append({
             "month": month,
             "sheet": ws.title,
             "income": income,
+            "expenseTotal": expense_total,
             "balance": balance,
             "payments": payments,
             "paymentTotal": sum(p["amount"] for p in payments),
