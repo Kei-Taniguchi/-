@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>家計Webアプリ 操作・復旧ガイド</title>
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI","Yu Gothic",Meiryo,sans-serif;line-height:1.8;margin:0;background:#f6f8fb;color:#263238}main{max-width:980px;margin:auto;padding:32px 20px 60px}header{background:#fff;padding:28px;border-radius:16px;box-shadow:0 4px 18px #00000010;margin-bottom:24px}h1{margin-top:0;color:#245b8f}h2{margin-top:32px;color:#245b8f;border-left:5px solid #79b7e8;padding-left:12px}h3{color:#426b89}.card{background:#fff;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 3px 14px #0000000d}.ok{background:#eef9f1;border-left:5px solid #52a86b;padding:14px}.warn{background:#fff7e8;border-left:5px solid #e2a63b;padding:14px}code{background:#eef1f5;padding:3px 6px;border-radius:5px}pre{background:#202b36;color:#f5f7fa;padding:16px;border-radius:10px;overflow:auto}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e5e9ee;padding:10px;text-align:left;vertical-align:top}th{background:#f0f5f9}li{margin:6px 0}.step{font-weight:700;color:#245b8f}.small{color:#667781;font-size:.92em}</style>
+</head>
+<body>
+<main>
+<header>
+<h1>家計Webアプリ 操作・復旧ガイド</h1>
+<p>このページは、これまで一緒に構築してきた家計Webアプリについて、<strong>普段の起動方法・データ更新・入力ルール・502エラー対応・よく聞いていた操作</strong>を1か所にまとめたものです。</p>
+<div class="ok"><strong>現在の構成：</strong> 家計.xlsm → GitHub Actions → data/kakei.json → Webアプリ</div>
+</header>
+
+<section class="card">
+<h2>1. まず覚える3つの場所</h2>
+<table>
+<tr><th>場所</th><th>役割</th></tr>
+<tr><td><code>家計.xlsm</code></td><td>元データ。月ごとの収入・支出などを入力するExcel。</td></tr>
+<tr><td>GitHubリポジトリ</td><td>Excelを解析するプログラムとWebアプリ本体を管理する場所。</td></tr>
+<tr><td>Codespaces</td><td>Webアプリを実際にブラウザで確認するときに使う開発環境。</td></tr>
+</table>
+</section>
+
+<section class="card">
+<h2>2. CodespacesでWebアプリを表示する手順</h2>
+<ol>
+<li><span class="step">Codespacesを開く。</span></li>
+<li>ターミナルでリポジトリのフォルダにいることを確認する。</li>
+<li>GitHub側の最新変更を取得する。</li>
+</ol>
+<pre>git pull origin main</pre>
+<p>その後、Webサーバーを起動します。</p>
+<pre>python3 -m http.server 8000</pre>
+<p><code>Serving HTTP on 0.0.0.0 port 8000</code> と表示されたら起動成功です。</p>
+<ol start="4">
+<li>Codespaces下部の<strong>PORTS</strong>を開く。</li>
+<li><strong>8000</strong>の行から<strong>Open in Browser</strong>を開く。</li>
+</ol>
+<div class="ok"><strong>ポイント：</strong> ターミナルでWebサーバーを起動したままにしてください。終了するとブラウザからアクセスできなくなります。</div>
+</section>
+
+<section class="card">
+<h2>3. 今回の502エラーの原因と直し方</h2>
+<p>今回の502は、<strong>8000番ポートでWebサーバーが起動していなかった</strong>ことが原因でした。</p>
+<p>ブラウザが502を表示し、ターミナルで次の結果になった場合：</p>
+<pre>curl: (7) Failed to connect to localhost port 8000 after 0 ms: Couldn't connect to server</pre>
+<p>次を実行します。</p>
+<pre>python3 -m http.server 8000</pre>
+<p>もし既に同じサーバーが残っている可能性がある場合は、次でも復旧できます。</p>
+<pre>pkill -f "http.server 8000" || true
+python3 -m http.server 8000</pre>
+<h3>確認コマンド</h3>
+<pre>curl http://localhost:8000</pre>
+<p>HTMLが返ってくれば、サーバーは正常です。</p>
+</section>
+
+<section class="card">
+<h2>4. ExcelデータをWebアプリへ反映する流れ</h2>
+<ol>
+<li>Excel <code>家計.xlsm</code>を更新する。</li>
+<li>変更したExcelをGitHubリポジトリ側の<code>家計.xlsm</code>へ反映する。</li>
+<li>GitHubへ変更をコミット・Pushする。</li>
+<li>GitHub Actionsが起動する。</li>
+<li><code>scripts/import_budget.py</code>がExcelを解析する。</li>
+<li><code>data/kakei.json</code>が生成・更新される。</li>
+<li>Webアプリの<code>app.js</code>が<code>data/kakei.json</code>を読み込む。</li>
+</ol>
+<div class="warn"><strong>注意：</strong> GitHub Actionsから直接OneDriveの<code>C:\Users\...</code>にはアクセスできません。Actionsが処理するのは、GitHubリポジトリに保存された<code>家計.xlsm</code>です。</div>
+</section>
+
+<section class="card">
+<h2>5. 現在の入力ルール</h2>
+<h3>月の収入</h3>
+<p><strong>各月シートのB列に記載されている数値を合計</strong>します。</p>
+<p>ただし、既存のExcel構成では<strong>B7が残高セル</strong>のため、収入の合計からは除外しています。</p>
+<p>例：B3＝100,000円、B4＝50,000円、B5＝20,000円なら、月収は<strong>170,000円</strong>です。</p>
+<h3>月の支出</h3>
+<p>月シートの支出欄について、明細が入力されている金額を集計します。Webアプリ側ではExcel由来の支出に、Web画面から追加した手入力支出も加算します。</p>
+<h3>Web画面からの手入力</h3>
+<ul>
+<li>日付：必須</li>
+<li>収入／支出：選択</li>
+<li>カテゴリー：選択</li>
+<li>金額：1円以上の整数</li>
+<li>支払方法：選択</li>
+<li>クレジットカードを選んだ場合：カード選択が必要</li>
+<li>分割払いを選んだ場合：分割回数が必要</li>
+<li>収入は通常払いのみ</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>6. アプリの画面構成</h2>
+<ul>
+<li><strong>月別の収入・支出・残高：</strong>画面上部に表示。</li>
+<li><strong>入力フォーム：</strong>収入・支出を選択し、ルールに沿って入力可能。</li>
+<li><strong>自動入力チェック：</strong>必須項目や支払方法に応じた条件を自動確認。</li>
+<li><strong>手入力データ：</strong>ブラウザのlocalStorageに保存。</li>
+<li><strong>カード・サービス予定：</strong>支払予定を確認可能。</li>
+<li><strong>分割分シートのカード情報：</strong>カードの引落・締め日情報を画面下部に配置。</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>7. これまで何度も確認した操作</h2>
+<h3>「変更を反映したい」</h3>
+<pre>git pull origin main</pre>
+<p>その後、ブラウザを再読み込みします。</p>
+<h3>「502になった」</h3>
+<pre>python3 -m http.server 8000</pre>
+<p>起動できたらPORTS → 8000 → Open in Browser。</p>
+<h3>「localhost:8000につながらない」</h3>
+<pre>curl http://localhost:8000</pre>
+<p>接続できなければWebサーバーを起動します。</p>
+<h3>「GitHubの変更がCodespacesに来ない」</h3>
+<pre>git pull origin main</pre>
+<h3>「Excelを変更したのに画面に反映されない」</h3>
+<p>GitHub Actionsの処理完了を確認し、生成された<code>data/kakei.json</code>が更新された後にCodespacesで<code>git pull origin main</code>を実行し、ブラウザを再読み込みします。</p>
+</section>
+
+<section class="card">
+<h2>8. 困ったときの確認順</h2>
+<ol>
+<li><strong>502？</strong> → <code>python3 -m http.server 8000</code></li>
+<li><strong>ページは開くが古い？</strong> → <code>git pull origin main</code> → ブラウザ再読み込み</li>
+<li><strong>Excelの数字が違う？</strong> → B列の入力内容とB7（残高セル）を確認</li>
+<li><strong>データ更新されない？</strong> → GitHub Actionsの完了を確認</li>
+<li><strong>入力できない？</strong> → 入力ルール上の必須項目・金額・カード・分割回数を確認</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>9. 最短復旧コマンド</h2>
+<p>Webアプリが見えなくなったときは、まずこれだけ覚えておけば大丈夫です。</p>
+<pre>git pull origin main
+python3 -m http.server 8000</pre>
+<p>その後、PORTSの8000を開きます。</p>
+</section>
+
+<footer class="small">家計Webアプリ 操作・復旧ガイド — 現在の構成に合わせた作業メモ</footer>
+</main>
+</body>
+</html>
