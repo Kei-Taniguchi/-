@@ -1,11 +1,13 @@
 from pathlib import Path
 import json
+import os
 import re
 from datetime import datetime
 
 import openpyxl
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_SOURCE = Path(r"C:\Users\syrup\OneDrive\デスクトップ\家計.xlsm")
 BOOK_XLSM = ROOT / "家計.xlsm"
 BOOK_XLSX = ROOT / "家計.xlsx"
 OUT = ROOT / "data" / "budget-data.json"
@@ -125,7 +127,7 @@ def extract_life_costs(months):
     result = []
     for m in months:
         costs = {"家賃": 0, "ガス": 0, "電気": 0, "携帯": 0, "水道": 0}
-        for p in m["raw_payments"]:
+        for p in m["raw_expenses"]:
             text = p["name"]
             for key in costs:
                 if key in text:
@@ -134,10 +136,42 @@ def extract_life_costs(months):
     return result
 
 
+def choose_source():
+    configured = os.environ.get("HOUSEHOLD_BUDGET_SOURCE")
+    if configured:
+        return Path(configured).expanduser()
+    if DEFAULT_SOURCE.exists():
+        return DEFAULT_SOURCE
+    if BOOK_XLSM.exists():
+        return BOOK_XLSM
+    return BOOK_XLSX
+
+
+def write_if_changed(result):
+    """Avoid changing generatedAt when the imported budget data is unchanged."""
+    existing = None
+    if OUT.exists():
+        try:
+            existing = json.loads(OUT.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            existing = None
+
+    if existing:
+        old_compare = dict(existing)
+        old_compare.pop("generatedAt", None)
+        new_compare = dict(result)
+        new_compare.pop("generatedAt", None)
+        if old_compare == new_compare:
+            result["generatedAt"] = existing.get("generatedAt", result["generatedAt"])
+
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
-    book = BOOK_XLSM if BOOK_XLSM.exists() else BOOK_XLSX
+    book = choose_source()
     if not book.exists():
-        raise SystemExit("家計.xlsm または 家計.xlsx が見つかりません")
+        raise SystemExit(f"家計.xlsm が見つかりません: {book}")
 
     wb = openpyxl.load_workbook(book, data_only=True, read_only=False, keep_vba=book.suffix.lower() == ".xlsm")
     months = []
@@ -149,7 +183,12 @@ def main():
             continue
         month = f"{m.group(1)}-{int(m.group(2)):02d}"
         income, balance, payments = parse_month_sheet(ws, month)
-        raw_life = [{"name": p["name"], "amount": p["amount"]} for p in payments]
+        raw_expenses = []
+        for row_no in range(1, ws.max_row + 1):
+            detail = ws.cell(row_no, 5).value
+            amount = ws.cell(row_no, 7).value
+            if detail is not None and number(amount) and amount != 0:
+                raw_expenses.append({"name": str(detail), "amount": amount})
         months.append({
             "month": month,
             "sheet": ws.title,
@@ -157,19 +196,19 @@ def main():
             "balance": balance,
             "payments": payments,
             "paymentTotal": sum(p["amount"] for p in payments),
-            "raw_payments": raw_life,
+            "raw_expenses": raw_expenses,
         })
 
     months.sort(key=lambda x: x["month"])
     life_cost_months = extract_life_costs(months)
     for m in months:
-        m.pop("raw_payments", None)
+        m.pop("raw_expenses", None)
 
     split_items = extract_split_items(split_sheet) if split_sheet else []
 
     result = {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
-        "source": book.name,
+        "source": str(book),
         "rules": {
             "incomeColumns": ["A", "B"],
             "incomeExcludedFrom": "2026-07",
@@ -180,6 +219,7 @@ def main():
             "installmentColumns": ["H", "I"],
             "completedRows": "分割分シートのグレーアウト行は除外",
             "scheduleSource": "各カード・サービス公式HP",
+            "sourceFile": "OneDriveのデスクトップにある家計.xlsm（環境変数で変更可能）",
         },
         "cardSchedules": OFFICIAL_SCHEDULES,
         "serviceSchedules": OFFICIAL_SERVICES,
@@ -187,9 +227,8 @@ def main():
         "lifeCostMonths": life_cost_months,
         "splitItems": split_items,
     }
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Generated {OUT} from {book.name}; monthly sheets={len(months)}; split items={len(split_items)}")
+    write_if_changed(result)
+    print(f"Generated {OUT} from {book}; monthly sheets={len(months)}; split items={len(split_items)}")
 
 
 if __name__ == "__main__":
